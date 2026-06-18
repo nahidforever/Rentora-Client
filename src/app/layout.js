@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.className} h-full antialiased`}>
       <body>
         <Navbar />
-        <main className="max-w-7xl mx-auto px-2 min-h-screen">{children}</main>
+        <main className="px-2 min-h-screen">{children}</main>
         <Toaster />
       </body>
     </html>

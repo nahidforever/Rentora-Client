@@ -10,12 +10,18 @@ import { Button } from "@heroui/react";
 import { HiHome } from "react-icons/hi";
 import { BiLogOut } from "react-icons/bi";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
+
+  const pathname = usePathname();
+  if (pathname.includes("dashboard")) {
+    return null;
+  }
 
   const handleLogout = async () => {
     await authClient.signOut();
@@ -68,7 +74,7 @@ const Navbar = () => {
           {user && (
             <li>
               <Link
-                href="/dashboard"
+                href={`/dashboard/${user?.role}`}
                 className="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-100 hover:text-blue-600 transition"
               >
                 Dashboard
