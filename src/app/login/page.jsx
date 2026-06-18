@@ -46,6 +46,12 @@ export default function SigninPage() {
     router.push("/");
   };
 
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 p-6">
       <div className="w-full max-w-5xl grid md:grid-cols-2 bg-white shadow-xl rounded-2xl overflow-hidden">
@@ -120,6 +126,7 @@ export default function SigninPage() {
 
             {/* GOOGLE LOGIN */}
             <Button
+              onClick={handleGoogleSignIn}
               variant="bordered"
               className="w-full flex items-center justify-center gap-2"
             >
