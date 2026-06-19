@@ -142,7 +142,7 @@ const Navbar = () => {
 
             {user && (
               <Link
-                href="/dashboard"
+                href={`/dashboard/${user?.role}`}
                 onClick={() => setIsOpen(false)}
                 className="px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-medium transition"
               >
