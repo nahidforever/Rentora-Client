@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PropertyEditModal from "./PropertyEditModal";
+import DeleteProperty from "./DeleteProperty";
 
 export default function MyPropertiesTable({ properties }) {
   const [data, setData] = useState(properties);
@@ -13,6 +14,10 @@ export default function MyPropertiesTable({ properties }) {
         item._id === updatedProperty._id ? updatedProperty : item,
       ),
     );
+  };
+
+  const handlePropertyDelete = (id) => {
+    setData((prev) => prev.filter((item) => item._id !== id));
   };
 
   return (
@@ -83,6 +88,10 @@ export default function MyPropertiesTable({ properties }) {
                   <PropertyEditModal
                     property={item}
                     onUpdate={handlePropertyUpdate}
+                  />
+                  <DeleteProperty
+                    property={item}
+                    onDelete={handlePropertyDelete}
                   />
                 </div>
               </td>
