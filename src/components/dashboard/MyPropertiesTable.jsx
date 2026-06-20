@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import PropertyEditModal from "./PropertyEditModal";
 import DeleteProperty from "./DeleteProperty";
+import OwnerViewFeedbackModal from "./OwnerViewFeedbackModal";
 
 export default function MyPropertiesTable({ properties }) {
   const [data, setData] = useState(properties);
@@ -69,8 +70,9 @@ export default function MyPropertiesTable({ properties }) {
               </td>
 
               <td>
-                <span
-                  className={`px-3 py-1 text-xs rounded-full font-medium
+                <div className="flex items-center gap-2">
+                  <span
+                    className={`px-3 py-1 text-xs rounded-full font-medium
                     ${
                       item.status === "Approved"
                         ? "bg-green-100 text-green-700"
@@ -78,9 +80,14 @@ export default function MyPropertiesTable({ properties }) {
                           ? "bg-red-100 text-red-700"
                           : "bg-yellow-100 text-yellow-700"
                     }`}
-                >
-                  {item.status}
-                </span>
+                  >
+                    {item.status}
+                  </span>
+
+                  {item.status === "Rejected" && (
+                    <OwnerViewFeedbackModal property={item} />
+                  )}
+                </div>
               </td>
 
               <td className="text-right p-4">

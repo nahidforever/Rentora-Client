@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { FiEdit3 } from "react-icons/fi";
-import { MdDeleteOutline } from "react-icons/md";
-import { CheckCircle, XCircle } from "lucide-react";
 import AdminEditPropertyModal from "./AdminEditPropertyModal";
 import AdminDeleteProperty from "./AdminDeleteProperty";
+import AdminApproveProperty from "./AdminApproveProperty";
+import AdminRejectProperty from "./AdminRejectProperty";
 
 export default function AdminPropertiesTable({ properties }) {
   return (
@@ -89,23 +89,13 @@ export default function AdminPropertiesTable({ properties }) {
               {/* Actions */}
               <td className="p-4">
                 <div className="flex justify-end gap-2">
+                  <AdminApproveProperty property={item} />
+
+                  <AdminRejectProperty property={item} />
+
                   <AdminEditPropertyModal property={item} />
 
                   <AdminDeleteProperty property={item}></AdminDeleteProperty>
-
-                  <button
-                    className="p-2 rounded-lg bg-blue-50 text-blue-600 border border-blue-200"
-                    title="Update"
-                  >
-                    <FiEdit3 size={18} />
-                  </button>
-
-                  <button
-                    className="p-2 rounded-lg bg-red-50 text-red-500 border border-red-200"
-                    title="Delete"
-                  >
-                    <MdDeleteOutline size={18} />
-                  </button>
                 </div>
               </td>
             </tr>
