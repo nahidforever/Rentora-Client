@@ -55,7 +55,7 @@ export default function DashboardSidebar() {
       { label: "Users", link: "/dashboard/admin/users", icon: FaUsers },
       {
         label: "Properties",
-        link: "/dashboard/admin/properties",
+        link: "/dashboard/admin/all-properties",
         icon: TbHomeStats,
       },
       { label: "Bookings", link: "/dashboard/admin/bookings", icon: BiMoney },
