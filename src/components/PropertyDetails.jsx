@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Bath, BedDouble, MapPin, Maximize } from "lucide-react";
+import AddToFavoriteButton from "./AddToFavoriteButton";
 
 export default function PropertyDetails({ property }) {
   return (
@@ -133,9 +134,7 @@ export default function PropertyDetails({ property }) {
 
               {/* BUTTONS */}
               <div className="space-y-4">
-                <button className="w-full border-2 border-red-200 bg-red-50 text-red-600 py-3 rounded-2xl font-semibold hover:bg-red-100 transition">
-                  ❤️ Add To Favorites
-                </button>
+                <AddToFavoriteButton property={property} />
 
                 <button className="w-full bg-blue-600 text-white py-3 rounded-2xl font-semibold hover:bg-blue-700 transition">
                   Book Property
