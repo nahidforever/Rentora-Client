@@ -18,9 +18,7 @@ export default function PropertyCard({ property }) {
       {/* Content */}
       <div className="p-5 space-y-3">
         {/* Title */}
-        <h2 className="text-xl font-bold text-gray-800">
-          {property.title}
-        </h2>
+        <h2 className="text-xl font-bold text-gray-800">{property.title}</h2>
 
         {/* Location */}
         <div className="flex items-center gap-2 text-gray-500 text-sm">
@@ -52,14 +50,12 @@ export default function PropertyCard({ property }) {
             ৳ {property.rent?.toLocaleString()}
           </h3>
 
-          <p className="text-sm text-gray-500">
-            / {property.rentType}
-          </p>
+          <p className="text-sm text-gray-500">/ {property.rentType}</p>
         </div>
 
         {/* Button */}
         <Link
-          href={`/property/${property._id}`}
+          href={`/properties/${property._id}`}
           className="block text-center bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
         >
           View Details
