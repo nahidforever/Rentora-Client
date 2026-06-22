@@ -48,6 +48,7 @@ export default function DashboardSidebar() {
         icon: FaUsers,
       },
       { label: "Bookings", link: "/dashboard/owner/bookings", icon: BiMoney },
+      { label: "Profile", link: "/dashboard/owner/profile", icon: FaUsers },
     ],
 
     admin: [
@@ -64,6 +65,7 @@ export default function DashboardSidebar() {
         link: "/dashboard/admin/transactions",
         icon: BiMoney,
       },
+      { label: "Profile", link: "/dashboard/admin/profile", icon: FaUsers },
     ],
   };
 

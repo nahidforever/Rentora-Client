@@ -8,10 +8,10 @@ export async function proxy(request) {
   });
 
   if (!session) {
-    return NextResponse.redirect(new URL("/signin", request.url));
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 }
 
 export const config = {
-  matcher: ["/profile"],
+  matcher: ["/properties/:path"],
 };

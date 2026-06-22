@@ -20,5 +20,16 @@ export default async function PropertyDetailsPage({ params }) {
 
   const property = await res.json();
 
-  return <PropertyDetails property={property} />;
+  const reviewRes = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/reviews/${id}`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    },
+  );
+
+  const reviews = await reviewRes.json();
+
+  return <PropertyDetails property={property} reviews={reviews} />;
 }

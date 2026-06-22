@@ -2,8 +2,10 @@ import Image from "next/image";
 import { Bath, BedDouble, MapPin, Maximize } from "lucide-react";
 import AddToFavoriteButton from "./AddToFavoriteButton";
 import BookPropertyModal from "./BookPropertyModal";
+import ReviewPropertyForm from "./ReviewPropertyForm";
+import ReviewSection from "./ReviewSection";
 
-export default function PropertyDetails({ property }) {
+export default function PropertyDetails({ property, reviews }) {
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
       <div className="grid lg:grid-cols-3 gap-10">
@@ -98,6 +100,9 @@ export default function PropertyDetails({ property }) {
               ))}
             </div>
           </div>
+          <ReviewPropertyForm property={property} />
+
+          <ReviewSection reviews={reviews} />
         </div>
 
         {/* RIGHT SIDE CARD */}
