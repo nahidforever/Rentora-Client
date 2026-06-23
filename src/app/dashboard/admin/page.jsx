@@ -22,7 +22,9 @@ export default async function AdminDashboardHome() {
     <div className="space-y-8">
       {/* Heading */}
       <div>
-        <h1 className="text-3xl font-bold">Welcome Admin Dashboard!</h1>
+        <h1 className="text-2xl md:text-3xl font-bold">
+          Welcome Admin Dashboard!
+        </h1>
 
         <p className="text-gray-500 mt-2">
           Monitor users, properties, bookings and transactions across the
