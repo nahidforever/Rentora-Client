@@ -9,10 +9,14 @@ export default async function PropertiesPage({ searchParams }) {
   const propertyType = params.propertyType || "";
   const sort = params.sort || "";
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/properties?search=${search}&propertyType=${propertyType}&sort=${sort}`,
-  );
+  const location = params.location || "";
+  const minPrice = params.minPrice || "";
+  const maxPrice = params.maxPrice || "";
 
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/properties?search=${search}&propertyType=${propertyType}&sort=${sort}&location=${location}&minPrice=${minPrice}&maxPrice=${maxPrice}`,
+  );
+  
   const properties = await res.json();
 
   return (
@@ -23,7 +27,7 @@ export default async function PropertiesPage({ searchParams }) {
           Find Your Perfect Home
         </span>
 
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mt-4">
           Explore Available Properties
         </h1>
 

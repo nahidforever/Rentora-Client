@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function Banner() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden">
-      {/* Background Image */}
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background */}
       <Image
         src="/home-banner.jpg"
         alt="Rentora Banner"
@@ -16,77 +16,114 @@ export default function Banner() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/50" />
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 h-[90vh] flex items-center">
+      <div className="relative max-w-7xl mx-auto px-4 min-h-screen flex items-center py-20 sm:py-24 md:py-20">
         <div className="w-full text-center">
-          {/* Title */}
+          {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold text-white leading-tight"
+            initial={false}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight"
           >
-            Find Your Perfect Home <br />
-            With <span className="text-blue-400">Rentora</span>
+            Find Your Dream Home With{" "}
+            <span className="text-blue-400">Rentora</span>
           </motion.h1>
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="max-w-3xl mx-auto mt-6 text-gray-200 text-lg leading-8"
+            initial={false}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            className="max-w-3xl mx-auto mt-6 text-base md:text-xl text-gray-200 leading-8"
           >
-            Discover apartments, villas and houses from trusted owners. Book
-            your next home with confidence and enjoy a seamless rental
-            experience.
+            Discover apartments, villas, offices and premium rental properties
+            from trusted owners. Book your next home with confidence and enjoy a
+            seamless rental experience.
           </motion.p>
 
           {/* Search Box */}
           <motion.div
-            initial={{ opacity: 0, y: 70 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-10 bg-white rounded-3xl shadow-2xl p-5"
+            initial={false}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            className="mt-10 max-w-6xl mx-auto backdrop-blur-2xl bg-white/5 border border-white/10 rounded-[32px] shadow-[0_8px_40px_rgba(0,0,0,0.35)] p-4 md:p-6"
           >
-            <div className="grid lg:grid-cols-5 gap-4">
+            <form
+              action="/properties"
+              method="GET"
+              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4"
+            >
               {/* Location */}
               <input
                 type="text"
+                name="location"
                 placeholder="Location"
-                className="border rounded-2xl px-4 py-3 outline-none"
+                className="w-full bg-white/10 backdrop-blur-md text-white placeholder:text-gray-300 border border-white/20 rounded-2xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
               />
 
               {/* Property Type */}
-              <select className="border rounded-2xl px-4 py-3 outline-none">
-                <option>Property Type</option>
-                <option>Apartment</option>
-                <option>House</option>
-                <option>Villa</option>
-                <option>Office</option>
+              <select
+                name="propertyType"
+                className="w-full bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-2xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="" className="text-black">
+                  Property Type
+                </option>
+
+                <option value="Apartment" className="text-black">
+                  Apartment
+                </option>
+
+                <option value="House" className="text-black">
+                  House
+                </option>
+
+                <option value="Studio" className="text-black">
+                  Studio
+                </option>
+
+                <option value="Villa" className="text-black">
+                  Villa
+                </option>
+
+                <option value="Office" className="text-black">
+                  Office
+                </option>
               </select>
 
               {/* Min Price */}
               <input
                 type="number"
+                name="minPrice"
                 placeholder="Min Price"
-                className="border rounded-2xl px-4 py-3 outline-none"
+                className="w-full bg-white/10 backdrop-blur-md text-white placeholder:text-gray-300 border border-white/20 rounded-2xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
               />
 
               {/* Max Price */}
               <input
                 type="number"
+                name="maxPrice"
                 placeholder="Max Price"
-                className="border rounded-2xl px-4 py-3 outline-none"
+                className="w-full bg-white/10 backdrop-blur-md text-white placeholder:text-gray-300 border border-white/20 rounded-2xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
               />
 
               {/* Button */}
-              <button className="bg-blue-600 text-white rounded-2xl font-semibold hover:bg-blue-700 transition">
-                Search
+              <button
+                type="submit"
+                className="w-full rounded-2xl bg-blue-600 py-3 font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:scale-[1.02]"
+              >
+                Search Properties
               </button>
-            </div>
+            </form>
           </motion.div>
         </div>
       </div>
