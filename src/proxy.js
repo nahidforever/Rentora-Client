@@ -18,22 +18,22 @@ export async function proxy(request) {
 
   // Tenant Routes Protection
   if (pathname.startsWith("/dashboard/tenant") && role !== "tenant") {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   // Owner Routes Protection
   if (pathname.startsWith("/dashboard/owner") && role !== "owner") {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   // Admin Routes Protection
   if (pathname.startsWith("/dashboard/admin") && role !== "admin") {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/properties/:path*", "/dashboard/:path*"],
+  matcher: ["/properties/:path", "/dashboard/:path*"],
 };

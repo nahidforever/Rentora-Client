@@ -76,14 +76,13 @@ export default function DashboardSidebar() {
   return (
     <>
       {/* MOBILE TOP BAR  */}
-      <div className="md:hidden flex items-center justify-between px-4 h-14 bg-slate-900 text-white border-b border-white/10">
-        {/* <h2 className="font-bold tracking-wide text-blue-400">Rentora</h2> */}
 
+      <div className="md:hidden flex justify-end px-2 h-12 bg-slate-900 border-b border-white/10">
         <button
           onClick={() => setOpen(true)}
-          className="p-2 rounded-lg hover:bg-white/10 transition"
+          className="my-auto h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center"
         >
-          <Menu size={20} />
+          <Menu size={18} className="text-white" />
         </button>
       </div>
 
