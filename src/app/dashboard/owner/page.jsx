@@ -27,9 +27,9 @@ export default async function OwnerDashboardHome() {
   );
 
   const analytics = await res.json();
-  const chartData = await chartRes.json();
+  const chartDataResponse = await chartRes.json();
 
-  console.log(chartData);
+  const chartData = Array.isArray(chartDataResponse) ? chartDataResponse : [];
 
   return (
     <div className="space-y-8">

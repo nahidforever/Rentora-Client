@@ -89,36 +89,25 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Dashboard */}
+          {/* Services */}
           <div className="text-center lg:text-left">
-            <h3 className="text-lg font-semibold mb-5">Dashboard</h3>
+            <h3 className="text-lg font-semibold mb-5">Services</h3>
 
             <ul className="space-y-3 text-slate-400">
-              <li>
-                <Link
-                  href="/dashboard/tenant"
-                  className="hover:text-white transition"
-                >
-                  Tenant Dashboard
-                </Link>
+              <li className="hover:text-white transition cursor-pointer">
+                Property Listings
               </li>
 
-              <li>
-                <Link
-                  href="/dashboard/owner"
-                  className="hover:text-white transition"
-                >
-                  Owner Dashboard
-                </Link>
+              <li className="hover:text-white transition cursor-pointer">
+                Online Booking
               </li>
 
-              <li>
-                <Link
-                  href="/dashboard/admin"
-                  className="hover:text-white transition"
-                >
-                  Admin Dashboard
-                </Link>
+              <li className="hover:text-white transition cursor-pointer">
+                Secure Payments
+              </li>
+
+              <li className="hover:text-white transition cursor-pointer">
+                Verified Owners
               </li>
             </ul>
           </div>

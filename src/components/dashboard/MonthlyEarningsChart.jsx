@@ -12,6 +12,17 @@ import {
 } from "recharts";
 
 export default function MonthlyEarningsChart({ chartData }) {
+  if (!chartData.length) {
+    return (
+      <div className="bg-white rounded-3xl border shadow-sm p-8 text-center">
+        <h2 className="text-xl font-semibold">No earnings data available</h2>
+
+        <p className="text-gray-500 mt-2">
+          Earnings statistics will appear here once payments are received.
+        </p>
+      </div>
+    );
+  }
   return (
     <div className="bg-white rounded-3xl border shadow-sm p-8">
       {/* Header */}

@@ -44,7 +44,6 @@ export default function SigninPage() {
 
     toast.success("Login successful!!");
     router.push("/");
-    router.refresh();
   };
 
   const handleGoogleSignIn = async () => {

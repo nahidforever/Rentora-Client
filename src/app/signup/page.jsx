@@ -46,7 +46,6 @@ export default function SignUpPage() {
 
     toast.success("Account created successfully!!");
     router.push("/");
-    router.refresh();
   };
 
   const handleGoogleSignIn = async () => {
