@@ -55,8 +55,8 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 p-6">
-      <div className="w-full max-w-5xl grid md:grid-cols-2 bg-white shadow-xl rounded-2xl overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-teal-50 px-2 py-4 sm:p-6">
+      <div className="w-full max-w-5xl grid md:grid-cols-2 bg-white shadow-xl rounded-xl sm:rounded-2xl overflow-hidden">
         {/* LEFT SIDE */}
         <div className="hidden md:flex flex-col justify-center p-10 bg-gradient-to-br from-blue-600 to-teal-500 text-white">
           <div className="flex items-center gap-2 text-2xl font-bold">
@@ -84,7 +84,7 @@ export default function SignUpPage() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="p-8">
+        <div className="p-4 sm:p-8">
           <div className="mb-6 text-center">
             <Chip color="primary" variant="flat">
               Welcome to Rentora
@@ -97,7 +97,7 @@ export default function SignUpPage() {
             </p>
           </div>
 
-          <Surface className="p-4 rounded-xl border">
+          <Surface className="w-full p-3 sm:p-4 rounded-xl border overflow-hidden">
             <Form onSubmit={onSubmit} className="space-y-4">
               {/* NAME */}
               <TextField name="name" isRequired>
