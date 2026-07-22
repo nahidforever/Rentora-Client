@@ -1,223 +1,307 @@
-# 🏠 Rentora - Your Next Home Awaits
+# 🏠 Rentora — Your Next Home Awaits
 
-A modern full-stack Property Rental & Booking Platform that connects tenants and property owners through a secure, seamless, and user-friendly experience.
+A modern, full-stack **Property Rental & Booking Platform** that connects **Tenants**, **Property Owners**, and **Administrators** through a secure, responsive, and user-friendly experience.
 
-## 🌐 Live Links
+## 🔑 Admin Credentials
 
-* Live Website: https://rentora-ten-rouge.vercel.app/
-* Client Repository: https://github.com/nahidforever/Rentora-Client
-* Server Repository: https://github.com/nahidforever/Rentora-Server
+To explore and test all administrative features of the platform, use the following demo account:
 
+## 🔑 Admin Credentials
 
-## 📖 Project Overview
+To access the administrator dashboard and explore all management features, use the following credentials.
 
-Rentora is a complete Property Rental & Booking Platform designed to simplify the rental process for tenants, property owners, and administrators.
+| **Field**         | **Credential**    |
+| :---------------- | :---------------- |
+| **Email Address** | `admin@gmail.com` |
+| **Password**      | `admin1234`       |
 
-Tenants can browse approved properties, save favorites, submit reviews, book properties, and complete secure payments using Stripe.
+## 🌐 Live Demo
 
-Property owners can add and manage properties, approve booking requests, and monitor earnings through an analytics dashboard.
+- 🔗 Live Website: https://rentora-ten-rouge.vercel.app/
 
-Administrators can manage users, moderate properties, monitor bookings, and oversee platform transactions.
+## 📂 Source Code
 
+- 💻 Client Repository: https://github.com/nahidforever/Rentora-Client
+- ⚙️ Server Repository: https://github.com/nahidforever/Rentora-Server
 
-## ✨ Key Features
+## 🌍 API Server
 
-### 🔐 Authentication & Authorization
+- 🚀 Server URL: https://rentora-server-three.vercel.app/
 
-* Email & Password Authentication
-* Google Social Login
-* JWT Authentication
-* Role-Based Access Control (RBAC)
-* Protected Routes
-* Protected APIs
+# 📸 Project Preview
 
-### 🏡 Property Management
+## 🏡 Home Page
 
-* Add Property
-* Update Property
-* Delete Property
-* Property Approval Workflow
-* Property Rejection Feedback
-* Dynamic Property Details Page
+![Home Page](./public/screenshots/home.png)
 
-### 🔍 Search, Filter & Sorting
+## 🏠 Property Details
 
-* Search by Location
-* Filter by Property Type
-* Filter by Price Range
-* Sort Price Low to High
-* Sort Price High to Low
-* Backend Filtering & Searching
+![Property Details](./public/screenshots/property-details.png)
 
-### ❤️ Favorites System
+## 📊 Owner Dashboard
 
-* Add Property to Favorites
-* Remove Favorites
-* Personalized Favorites List
+![Owner Dashboard](./public/screenshots/owner-dashboard.png)
 
-### 📅 Booking System
+## 🛠️ Admin Dashboard
 
-* Property Booking
-* Booking Request Workflow
-* Booking Approval & Rejection
-* Booking Status Tracking
+![Admin Dashboard](./public/screenshots/admin-dashboard.png)
 
-### 💳 Stripe Payment Integration
+# 📖 Project Overview
 
-* Secure Online Payments
-* Payment Verification
-* Transaction Tracking
-* Payment Status Management
+**Rentora** is a complete Property Rental & Booking Platform built to simplify the property rental process.
 
-### ⭐ Review System
+The platform enables tenants to discover rental properties, save favorites, submit reviews, book properties, and complete secure online payments.
 
-* Property Ratings
-* Tenant Reviews
-* Dynamic Customer Reviews Section
+Property owners can list and manage properties, monitor bookings, approve reservation requests, and analyze earnings.
 
-### 📊 Dashboard Analytics
+Administrators oversee the entire platform by managing users, moderating property listings, monitoring transactions, and ensuring platform integrity.
 
-#### Tenant Dashboard
+# ✨ Core Features
 
-* Total Bookings
-* Favorites Count
-* Total Paid Amount
+## 🔐 Authentication & Authorization
 
-#### Owner Dashboard
+- Email & Password Authentication
+- Google Social Login
+- Better Auth Authentication
+- JWT Authentication
+- Role-Based Access Control (RBAC)
+- Protected Routes
+- Protected APIs
+- Session Management
 
-* Total Earnings
-* Total Properties
-* Total Bookings
-* Monthly Earnings Chart
+## 🏠 Property Management
 
-#### Admin Dashboard
+- Add Property
+- Update Property
+- Delete Property
+- Property Approval Workflow
+- Property Rejection Feedback
+- Dynamic Property Details Page
+- Property Availability Status
 
-* Total Users
-* Total Properties
-* Total Bookings
-* Total Transactions
+## 🔍 Search, Filter & Sorting
 
-### 🎨 Modern UI/UX
+- Search by Location
+- Filter by Property Type
+- Filter by Price Range
+- Sort Price (Low → High)
+- Sort Price (High → Low)
+- Backend Filtering
+- Real-time Search Experience
 
-* Fully Responsive Design
-* Mobile First Approach
-* Framer Motion Animations
-* Professional Dashboard Layout
-* Consistent Design System
+## ❤️ Favorites
 
+- Add Property to Favorites
+- Remove from Favorites
+- Personalized Favorites List
 
-## 👥 User Roles
+## 📅 Booking System
 
-### Tenant
+- Book Property
+- Booking Request Workflow
+- Booking Approval & Rejection
+- Booking Status Tracking
+- Booking History
 
-* Browse Properties
-* Save Favorites
-* Book Properties
-* Complete Payments
-* Submit Reviews
-* Manage Bookings
+## 💳 Secure Stripe Payments
 
-### Owner
+- Stripe Checkout Integration
+- Reservation Fee Payment
+- Secure Payment Verification
+- Transaction History
+- Payment Status Tracking
 
-* Add Properties
-* Manage Properties
-* Approve or Reject Bookings
-* Track Earnings
-* View Analytics
+## ⭐ Review System
 
-### Admin
+- Tenant Reviews
+- Property Ratings
+- Dynamic Review Section
+- Review Management
 
-* Manage Users
-* Manage Properties
-* Approve or Reject Properties
-* Monitor Bookings
-* Monitor Transactions
+## 📊 Dashboard Analytics
 
+### 👤 Tenant Dashboard
 
-## 🛠️ Technology Stack
+- Total Bookings
+- Favorite Properties
+- Total Paid Amount
+- Booking History
 
-### Frontend
+### 🏠 Owner Dashboard
 
-* Next.js
-* Tailwind CSS
-* Framer Motion
-* Recharts
-* React Icons
-* Lucide React
+- Analytics Cards
+- Monthly Earnings Chart
+- Property Management
+- Booking Requests
 
+### 👑 Admin Dashboard
+
+- Manage Users
+- Manage Properties
+- Approve Properties
+- Reject Properties
+- Delete Properties
+- Manage Transactions
 
-### Backend
+# 👥 User Roles
+
+## 👤 Tenant
+
+- Browse Properties
+- View Property Details
+- Save Favorites
+- Book Properties
+- Make Payments
+- Submit Reviews
+- Manage Bookings
 
-* Node.js
-* Express.js
-* MongoDB Atlas
-* JWT Authentication
+## 🏠 Property Owner
+
+- Add New Property
+- Update Property
+- Delete Property
+- View Booking Requests
+- Approve / Reject Bookings
+- Track Earnings
+- Dashboard Analytics
 
-### Authentication
+## 👑 Administrator
 
-* Better Auth
-* Google OAuth
+- Manage Users
+- Promote/Demote User Roles
+- Approve Properties
+- Reject Properties
+- Delete Properties
+- Monitor Platform Activity
+- View Transactions
 
-### Payment Gateway
+# 🛠️ Tech Stack
 
-* Stripe
+## Frontend
 
-### Image Hosting
+- Next.js 15
+- React 19
+- Tailwind CSS
+- HeroUI
+- Framer Motion
+- React Icons
+- Recharts
+- Axios
 
-* ImgBB
+## Backend
 
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Better Auth
 
+## Authentication
 
-## 📦 NPM Packages Used
+- Better Auth
+- Google OAuth
 
-### Client Side
+## Payment
 
-* next
-* react
-* react-dom
-* tailwindcss
-* framer-motion
-* recharts
-* react-icons
-* lucide-react
-* axios
-* better-auth
-* @stripe/react-stripe-js
-* @stripe/stripe-js
+- Stripe
 
-### Server Side
+## Image Hosting
 
-* express
-* mongodb
-* cors
-* dotenv
-* jsonwebtoken
-* stripe
-* better-auth
+- ImgBB
 
+# 📦 NPM Packages
 
-## 🔒 Security Features
+## Client
 
-* JWT Protected APIs
-* Role-Based Authorization
-* Protected Dashboard Routes
-* Secure Stripe Payment Processing
-* Authentication Middleware
-* Authorization Middleware
-* Environment Variable Protection
+```bash
+next
+react
+react-dom
+tailwindcss
+@heroui/react
+framer-motion
+better-auth
+react-hot-toast
+react-icons
+recharts
+@stripe/react-stripe-js
+@stripe/stripe-js
+```
 
+## Server
 
-## 📱 Responsive Design
+```bash
+express
+mongodb
+cors
+dotenv
+better-auth
+stripe
+```
 
-Optimized for:
+# 🔒 Security
 
-* Mobile Devices
-* Tablets
-* Laptops
-* Desktop Screens
+- Better Auth Authentication
+- Role-Based Authorization
+- Protected Dashboard Routes
+- Protected APIs
+- Secure Stripe Payments
+- Environment Variables
+- Secure MongoDB Credentials
 
-## 👨‍💻 Developer
+# 📱 Responsive Design
 
-Md. Nahid Islam
+Fully optimized for:
 
-### Rentora — Your Next Home Awaits 🏠
+- 📱 Mobile
+- 📲 Tablet
+- 💻 Laptop
+- 🖥️ Desktop
+
+# 🚀 Installation
+
+## Clone Client
+
+```bash
+git clone https://github.com/nahidforever/Rentora-Client.git
+```
+
+## Clone Server
+
+```bash
+git clone https://github.com/nahidforever/Rentora-Server.git
+```
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+## Run Development Server
+
+```bash
+npm run dev
+```
+
+# 🌟 Why Rentora?
+
+- Modern UI/UX
+- Fully Responsive
+- Secure Authentication
+- Role-Based Dashboard
+- Property Approval Workflow
+- Stripe Payment Integration
+- Interactive Analytics
+- Smooth Animations
+- Clean Architecture
+- Production Ready
+
+# 👨‍💻 Developer
+
+**MD. Nahid Islam**
+
+- GitHub: [https://github.com/nahidforever](https://github.com/nahidforever)
+- LinkedIn: [https://www.linkedin.com/in/nahidforever/](https://www.linkedin.com/in/nahidforever/)
+- Email: n.i.nahid02@gmail.com
+
+**Rentora — Your Next Home Awaits 🏡**
