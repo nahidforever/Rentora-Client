@@ -6,9 +6,6 @@ A modern, full-stack **Property Rental & Booking Platform** that connects **Tena
 
 To explore and test all administrative features of the platform, use the following demo account:
 
-## 🔑 Admin Credentials
-
-To access the administrator dashboard and explore all management features, use the following credentials.
 
 | **Field**         | **Credential**    |
 | :---------------- | :---------------- |
