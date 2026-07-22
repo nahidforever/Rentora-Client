@@ -5,7 +5,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 
 import { authClient } from "@/lib/auth-client";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 
 import { HiHome } from "react-icons/hi";
 import { BiLogOut } from "react-icons/bi";
@@ -19,6 +19,15 @@ const Navbar = () => {
   const user = session?.user;
 
   const pathname = usePathname();
+
+  const isActive = (path) => {
+    if (path === "/") {
+      return pathname === "/";
+    }
+
+    return pathname.startsWith(path);
+  };
+
   if (pathname.includes("dashboard")) {
     return null;
   }
@@ -32,31 +41,26 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 w-full border-b border-gray-200/60 bg-white/75 backdrop-blur-xl shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 lg:px-6">
         {/* LEFT */}
-        <div className="flex items-center gap-3">
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
-          </button>
+        <Link href="/" className="flex items-center gap-2 group">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md group-hover:scale-105 transition">
+            <HiHome className="text-white text-lg" />
+          </div>
 
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md group-hover:scale-105 transition">
-              <HiHome className="text-white text-lg" />
-            </div>
-
-            <span className="font-semibold text-lg tracking-tight text-gray-800 group-hover:text-blue-600 transition">
-              Rentora
-            </span>
-          </Link>
-        </div>
+          <span className="font-semibold text-lg tracking-tight text-gray-800 group-hover:text-blue-600 transition">
+            Rentora
+          </span>
+        </Link>
 
         {/* CENTER */}
         <ul className="hidden md:flex items-center gap-1">
           <li>
             <Link
               href="/"
-              className="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-100 hover:text-blue-600 transition"
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition ${
+                isActive("/")
+                  ? "text-blue-600 bg-blue-100"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              }`}
             >
               Home
             </Link>
@@ -65,7 +69,11 @@ const Navbar = () => {
           <li>
             <Link
               href="/properties"
-              className="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-100 hover:text-blue-600 transition"
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition ${
+                isActive("/properties")
+                  ? "text-blue-600 bg-blue-100"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              }`}
             >
               All Properties
             </Link>
@@ -75,7 +83,11 @@ const Navbar = () => {
             <li>
               <Link
                 href={`/dashboard/${user?.role}`}
-                className="px-4 py-2 rounded-full text-gray-700 font-medium hover:bg-gray-100 hover:text-blue-600 transition"
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition ${
+                  isActive("/dashboard")
+                    ? "text-blue-600 bg-blue-100"
+                    : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                }`}
               >
                 Dashboard
               </Link>
@@ -106,17 +118,43 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-3">
+              {/* User Card */}
+              <div className="flex h-10 items-center gap-3 rounded-xl bg-white px-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+                <Avatar className="h-8 w-8 rounded-lg">
+                  <Avatar.Image
+                    src={user?.image}
+                    alt={user?.name}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Avatar.Fallback className="rounded-lg">
+                    {user?.name?.charAt(0).toUpperCase()}
+                  </Avatar.Fallback>
+                </Avatar>
+
+                <p className="max-w-[140px] truncate text-sm font-semibold text-slate-800">
+                  {user?.name}
+                </p>
+              </div>
+
+              {/* Logout */}
               <Button
                 size="sm"
                 onClick={handleLogout}
-                className="h-10 px-5 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white font-semibold shadow-sm hover:shadow-md hover:scale-[1.02] transition"
+                className="h-10 rounded-xl bg-gradient-to-r from-red-500 to-rose-600 px-5 font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <BiLogOut className="mr-1" />
                 Logout
               </Button>
             </div>
           )}
+
+          <button
+            className="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-100 hover:text-blue-600"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+          </button>
         </div>
       </div>
 
@@ -124,10 +162,35 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-xl">
           <div className="flex flex-col gap-2 p-4">
+            {user && (
+              <div className="mb-4 flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm">
+                <Avatar className="h-10 w-10 rounded-lg">
+                  <Avatar.Image
+                    src={user?.image}
+                    alt={user?.name}
+                    referrerPolicy="no-referrer"
+                  />
+                  <Avatar.Fallback className="rounded-lg">
+                    {user?.name?.charAt(0).toUpperCase()}
+                  </Avatar.Fallback>
+                </Avatar>
+
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-slate-800">
+                    {user?.name}
+                  </p>
+                </div>
+              </div>
+            )}
+
             <Link
               href="/"
               onClick={() => setIsOpen(false)}
-              className="px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-medium transition"
+              className={`px-4 py-3 text-sm font-medium rounded-lg transition ${
+                isActive("/")
+                  ? "text-blue-600 bg-blue-100"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              }`}
             >
               Home
             </Link>
@@ -135,7 +198,11 @@ const Navbar = () => {
             <Link
               href="/properties"
               onClick={() => setIsOpen(false)}
-              className="px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-medium transition"
+              className={`px-4 py-3 text-sm font-medium rounded-lg transition ${
+                isActive("/properties")
+                  ? "text-blue-600 bg-blue-100"
+                  : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              }`}
             >
               All Properties
             </Link>
@@ -144,7 +211,11 @@ const Navbar = () => {
               <Link
                 href={`/dashboard/${user?.role}`}
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-3 rounded-lg hover:bg-gray-100 text-gray-700 font-medium transition"
+                className={`px-4 py-3 text-sm font-medium rounded-lg transition ${
+                  isActive("/dashboard")
+                    ? "text-blue-600 bg-blue-100"
+                    : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                }`}
               >
                 Dashboard
               </Link>

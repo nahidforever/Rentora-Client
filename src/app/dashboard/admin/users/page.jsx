@@ -200,9 +200,15 @@ export default async function UsersPage() {
 
                         {/* Action */}
                         <td className="px-6 py-4 text-right">
-                          <div className="inline-flex items-center justify-end">
-                            <ChangeRoleClient user={user} />
-                          </div>
+                          {user.email === "admin@gmail.com" ? (
+                            <span className="rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-500">
+                              Super Admin
+                            </span>
+                          ) : (
+                            <div className="inline-flex items-center justify-end">
+                              <ChangeRoleClient user={user} />
+                            </div>
+                          )}
                         </td>
                       </tr>
                     );
@@ -260,7 +266,13 @@ export default async function UsersPage() {
                         Manage role
                       </div>
 
-                      <ChangeRoleClient user={user} />
+                      {user.email === "admin@gmail.com" ? (
+                        <span className="rounded-full bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-500">
+                          Super Admin
+                        </span>
+                      ) : (
+                        <ChangeRoleClient user={user} />
+                      )}
                     </div>
                   </article>
                 );
